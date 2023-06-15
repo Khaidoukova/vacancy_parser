@@ -1,3 +1,4 @@
+import json
 import requests
 import pprint
 from src.abstract import API_Parser
@@ -10,6 +11,7 @@ class HHApi(API_Parser):
 
     def get_vacancies(self, keyword):
 
+        v_dict = {}
         v_list = []
 
         url = self.url
@@ -35,17 +37,26 @@ class HHApi(API_Parser):
                     salary_min = vacancy["salary"]["from"]
                     salary_max = vacancy["salary"]["to"]
 
-                requirement = vacancy["snippet"]["requirement"]
+                description = vacancy["snippet"]["requirement"]
 
-                vacancy1 = Vacancy(title, url, requirement, salary_min, salary_max)
-                v_list.append(vacancy1)
+                v_dict = {'title': title,
+                          'url': url,
+                          'salary_min': salary_min,
+                          'salary_max': salary_max,
+                          'description': description}
+
+                v_list.append(v_dict)
             return v_list
 
         else:
             print("Ошибка подключения.")
 
+    def make_json_file(self, v_list):
+        with open("vacancies_file.json", "w", encoding='UTF-8') as file:
+            json.dump(v_list, file, indent=4, ensure_ascii=False)
+
 
 hh = HHApi()
 h = hh.get_vacancies("python")
-for i in h:
-    print(i)
+hh.make_json_file(h)
+
