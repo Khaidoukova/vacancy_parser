@@ -50,7 +50,11 @@ class SJApi(API_Parser):
         with open("vacancies_file.json", "w", encoding='UTF-8') as file:
             json.dump(sj_list, file, indent=4, ensure_ascii=False)
 
+    def add_to_json_file(self, sj_list):
+        with open("vacancies_file.json", "a", encoding='UTF-8') as file:
+            json.dump(sj_list, file, indent=4, ensure_ascii=False)
+
 
 a = SJApi()
 b = a.get_vacancies("python")
-a.make_json_file(b)
+a.add_to_json_file(b)

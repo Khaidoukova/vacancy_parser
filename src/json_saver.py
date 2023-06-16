@@ -1,4 +1,5 @@
 import json
+import pprint
 
 
 class JSONSaver:
@@ -12,18 +13,27 @@ class JSONSaver:
             data = json.loads(data_json)
         return data
 
-    def filter_by_min_salary(self, data):
-        pass
+    def filter_by_min_salary(self):
+        salary_min_list = []
+        data = self.get_data()
+        for i in data:
+            if i['salary_min']:
+                salary_min_list.append(i)
+        salary_min_list = sorted(salary_min_list, key=lambda x: x['salary_min'], reverse=True)
+        with open("filtered_list.json", "a", encoding='UTF-8') as file:
+            json.dump(salary_min_list, file, indent=4, ensure_ascii=False)
+            
+    def filter_by_max_salary(self):
+        salary_max_list = []
+        data = self.get_data()
+        for i in data:
+            if i['salary_max']:
+                salary_max_list.append(i)
+        salary_max_list = sorted(salary_max_list, key=lambda x: x['salary_max'], reverse=True)
+        return salary_max_list
 
 
 
-
-
-
-
-
-
-
-
-
-
+n = JSONSaver()
+nn = n.filter_by_min_salary()
+pprint.pprint(nn)

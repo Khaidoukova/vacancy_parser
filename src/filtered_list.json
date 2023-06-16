@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Программист Python (Junior-Middle)",
+        "url": "https://hh.ru/vacancy/81780083",
+        "salary_min": 60000,
+        "salary_max": 100000,
+        "description": "Ты знаешь <highlighttext>Python</highlighttext>. Ты работал с в e-commerce сфере и с маркетплейсами. Умеешь планировать свое время и свято чтишь..."
+    },
+    {
+        "title": "Программист Python",
+        "url": "https://hh.ru/vacancy/81886894",
+        "salary_min": 60000,
+        "salary_max": 120000,
+        "description": "Опыт работы с очередями RabbitMQ. Понимание принципов ООП. Знание языка программирования <highlighttext>Python</highlighttext> на уровне написания Service для Unix, но работать..."
+    },
+    {
+        "title": "Junior/Middle Python-developer",
+        "url": "https://hh.ru/vacancy/81949300",
+        "salary_min": 50000,
+        "salary_max": null,
+        "description": "Linux, уверенный пользователь. <highlighttext>Python</highlighttext> >= 3.5. SQL. Postgres, MySQL. Docker, docker-compose. ORM (Alchemy). Опыт использования продуктов Attlassian. "
+    },
+    {
+        "title": "Junior Python (backend developer)",
+        "url": "https://hh.ru/vacancy/81846387",
+        "salary_min": 45000,
+        "salary_max": null,
+        "description": "Знание <highlighttext>Python</highlighttext>. Понимание архитектуры построения web-приложений и web-сервисов. Знание SQL, понимание принципов проектирования реляционных БД. Если вы уже..."
+    },
+    {
+        "title": "Разработчик Python, MS SQL",
+        "url": "https://hh.ru/vacancy/81795128",
+        "salary_min": 1000,
+        "salary_max": 3000,
+        "description": "Опыт работы с <highlighttext>Python</highlighttext> и MS SQL. Опыт парсинга данных из разных источников. Умение анализировать и обрабатывать большие объемы данных. "
+    }
+]
