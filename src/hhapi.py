@@ -6,24 +6,22 @@ from src.vacancy import Vacancy
 
 
 class HHApi(API_Parser):
-    def __init__(self):
-        self.url = "https://api.hh.ru/vacancies"
+    url = "https://api.hh.ru/vacancies"
 
-    def get_vacancies(self, keyword):
+    def __init__(self, keyword, v_count):
+        self.keyword = keyword
+        self.v_count = v_count
 
-        v_dict = {}
+    def get_vacancies(self):
         v_list = []
-
-        url = self.url
         params = {
-            "text": keyword,
-            "per_page": 10,
+            "text": self.keyword,
+            "per_page": self.v_count,
         }
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
         }
-
-        response = requests.get(url, params=params, headers=headers)
+        response = requests.get(self.url, params=params, headers=headers)
         if response.status_code == 200:
             data = response.json()
             vacancies = data.get("items")
@@ -49,14 +47,8 @@ class HHApi(API_Parser):
             return v_list
 
         else:
-            print("Ошибка подключения.")
+            raise Exception(f"Ошибка подключения. Код {response.status_code}")
 
     def make_json_file(self, v_list):
-        with open("vacancies_file.json", "w", encoding='UTF-8') as file:
+        with open("vacancies_file_hh.json", "w", encoding='UTF-8') as file:
             json.dump(v_list, file, indent=4, ensure_ascii=False)
-
-
-hh = HHApi()
-h = hh.get_vacancies("python")
-hh.make_json_file(h)
-

@@ -4,19 +4,20 @@ import pprint
 
 class JSONSaver:
 
-    def __init__(self):
-        self.path = "../src/vacancies_file.json"
+    def __init__(self, keyword, vacancy_list):
+        self.file = f"{keyword.title()}_vacancy_search.json"
+        self.write_to_file(vacancy_list)
 
-    def get_data(self):
-        with open(self.path, encoding='UTF-8') as file:
-            data_json = file.read()
-            data = json.loads(data_json)
-        return data
+    def write_to_file(self, vacancy_list):
+        with open(self.file, "w", encoding='UTF-8') as file:
+            json.dump(vacancy_list, file, indent=4)
+
 
     def filter_by_min_salary(self):
         salary_min_list = []
-        data = self.get_data()
-        for i in data:
+        with open(self.file, "r", encoding="UTF-8") as file:
+            va
+        for i in vacancy_list:
             if i['salary_min']:
                 salary_min_list.append(i)
         salary_min_list = sorted(salary_min_list, key=lambda x: x['salary_min'], reverse=True)

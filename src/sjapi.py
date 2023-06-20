@@ -6,21 +6,23 @@ from src.abstract import API_Parser
 
 
 class SJApi(API_Parser):
-    def __init__(self):
-        self.url = "https://api.superjob.ru/2.0/vacancies/"
+    url = "https://api.superjob.ru/2.0/vacancies/"
 
-    def get_vacancies(self, keyword):
+    def __init__(self, keyword, v_count):
+        self.keyword = keyword
+        self.v_count = v_count
 
-        sj_list = []
-
-        url = self.url
-        params = {"count": 10, "page": None,
-                  "keyword": keyword, "archive": False, }
+    def get_vacancies(self):
+        params = {"count": self.v_count, "page": None,
+                  "keyword": self.keyword, "archive": False, }
         headers = {'Host': 'api.superjob.ru',
                    'X-Api-App-Id': "v3.r.137614390.20db844b570be75c7e4732fdbba6f34b1f802bcd.d8a6caebb4a52e2f2d3aeecac89d18bd48209ee5",
                    'Authorization': 'Bearer r.000000010000001.example.access_token',
                    'Content-Type': 'application/x-www-form-urlencoded'}
 
+        sj_list = []
+
+        url = self.url
         response = requests.get(url, params=params, headers=headers)
         data = response.json()
         vacancies = data.get("objects")
@@ -47,14 +49,15 @@ class SJApi(API_Parser):
         return sj_list
 
     def make_json_file(self, sj_list):
-        with open("vacancies_file.json", "w", encoding='UTF-8') as file:
+        with open("vacancies_file_sj.json", "w", encoding='UTF-8') as file:
             json.dump(sj_list, file, indent=4, ensure_ascii=False)
 
     def add_to_json_file(self, sj_list):
-        with open("vacancies_file.json", "a", encoding='UTF-8') as file:
+        with open("vacancies_file_sj.json", "a", encoding='UTF-8') as file:
             json.dump(sj_list, file, indent=4, ensure_ascii=False)
 
 
-a = SJApi()
-b = a.get_vacancies("python")
-a.add_to_json_file(b)
+a = SJApi("python", 10)
+b = a.get_vacancies()
+a.make_json_file(b)
+#pprint.pprint(b)

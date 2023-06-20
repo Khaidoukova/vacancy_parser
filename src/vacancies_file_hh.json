@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Программист Python Junior",
+        "url": "https://hh.ru/vacancy/81027322",
+        "salary_min": null,
+        "salary_max": null,
+        "description": "Высшее образование (можно неоконченное/неполное) технического ВУЗа (с курсов по <highlighttext>Python</highlighttext> не принимаем). Логичный и структурированный подход к решению задач..."
+    },
+    {
+        "title": "Программист Python (Junior-Middle)",
+        "url": "https://hh.ru/vacancy/81780083",
+        "salary_min": 60000,
+        "salary_max": 100000,
+        "description": "Ты знаешь <highlighttext>Python</highlighttext>. Ты работал с в e-commerce сфере и с маркетплейсами. Умеешь планировать свое время и свято чтишь..."
+    },
+    {
+        "title": "Junior Python (backend developer)",
+        "url": "https://hh.ru/vacancy/81846387",
+        "salary_min": 45000,
+        "salary_max": null,
+        "description": "Знание <highlighttext>Python</highlighttext>. Понимание архитектуры построения web-приложений и web-сервисов. Знание SQL, понимание принципов проектирования реляционных БД. Если вы уже..."
+    },
+    {
+        "title": "Junior Python разработчик",
+        "url": "https://hh.ru/vacancy/82097736",
+        "salary_min": 35000,
+        "salary_max": 60000,
+        "description": "Профильное высшее образование. Знание <highlighttext>python</highlighttext> 3. Желание развиваться в сфере AI. Желательно/будет плюсом: Опыт бэкенд разработки. Опыт работы с..."
+    },
+    {
+        "title": "Python разработчик",
+        "url": "https://hh.ru/vacancy/81075881",
+        "salary_min": null,
+        "salary_max": 250000,
+        "description": "Уверенное знание <highlighttext>Python</highlighttext>. Умение писать читабельный и оптимальный код. Понимание принципов ООП. Знание основных паттернов программирования. Будет плюсом, если есть..."
+    },
+    {
+        "title": "Программист Python",
+        "url": "https://hh.ru/vacancy/81886894",
+        "salary_min": 60000,
+        "salary_max": 120000,
+        "description": "Опыт работы с очередями RabbitMQ. Понимание принципов ООП. Знание языка программирования <highlighttext>Python</highlighttext> на уровне написания Service для Unix, но работать..."
+    },
+    {
+        "title": "Trainee Python Developer",
+        "url": "https://hh.ru/vacancy/82034889",
+        "salary_min": null,
+        "salary_max": null,
+        "description": "Понимание принципов ООП, DRY, KISS, SOLID, REST. Знания SQL баз данных (PostgreSQL). Знание <highlighttext>Python</highlighttext> Core и встроенной библиотеки. "
+    },
+    {
+        "title": "Младший специалист отдела разработки (Python) / Специалист по парсингу данных",
+        "url": "https://hh.ru/vacancy/81639879",
+        "salary_min": null,
+        "salary_max": 70000,
+        "description": "Что обязательно нужно знать и уметь: <highlighttext>Python</highlighttext> на базовом уровне (циклы, функции, структуры данных, ООП). Что такое Header, Cookie и..."
+    },
+    {
+        "title": "Intern / Junior Programmer (Python)",
+        "url": "https://hh.ru/vacancy/81481794",
+        "salary_min": null,
+        "salary_max": null,
+        "description": "Хорошие знания <highlighttext>Python</highlighttext>. Техническая грамотность. Техническое образование (также студенты последних курсов). Умение и готовность работать в команде, усидчивость, ответственность и..."
+    },
+    {
+        "title": "Python-разработчик (junior +)",
+        "url": "https://hh.ru/vacancy/82091793",
+        "salary_min": null,
+        "salary_max": null,
+        "description": "Ориентироваться в web-технологиях: HTML/JS/CSS, REST, stateless/stateful сервисы. Знание <highlighttext>Python</highlighttext> DRF. REST API на DRF, ORM. "
+    }
+]
