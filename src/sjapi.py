@@ -1,11 +1,11 @@
 import json
 import requests
-import pprint
-from src.vacancy import Vacancy
-from src.abstract import API_Parser
+import os
+from src.abstract import APIParser
 
 
-class SJApi(API_Parser):
+class SJApi(APIParser):
+    """Класс для получения данных по API с сайта SuperJob"""
     url = "https://api.superjob.ru/2.0/vacancies/"
 
     def __init__(self, keyword, v_count):
@@ -13,10 +13,11 @@ class SJApi(API_Parser):
         self.v_count = v_count
 
     def get_vacancies(self):
+        """Метод для получения и обработки данных с сайта"""
         params = {"count": self.v_count, "page": None,
                   "keyword": self.keyword, "archive": False, }
         headers = {'Host': 'api.superjob.ru',
-                   'X-Api-App-Id': "v3.r.137614390.20db844b570be75c7e4732fdbba6f34b1f802bcd.d8a6caebb4a52e2f2d3aeecac89d18bd48209ee5",
+                   'X-Api-App-Id': os.getenv('SJ_API_KEY'),
                    'Authorization': 'Bearer r.000000010000001.example.access_token',
                    'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -49,15 +50,15 @@ class SJApi(API_Parser):
         return sj_list
 
     def make_json_file(self, sj_list):
-        with open("vacancies_file_sj.json", "w", encoding='UTF-8') as file:
+        """Метод для записи полученных данных в json файл"""
+        with open("vacancies_file.json", "w", encoding='UTF-8') as file:
             json.dump(sj_list, file, indent=4, ensure_ascii=False)
 
-    def add_to_json_file(self, sj_list):
-        with open("vacancies_file_sj.json", "a", encoding='UTF-8') as file:
-            json.dump(sj_list, file, indent=4, ensure_ascii=False)
-
-
-a = SJApi("python", 10)
-b = a.get_vacancies()
-a.make_json_file(b)
-#pprint.pprint(b)
+    def sort_by_max_salary(self, sj_list):
+        """Метод для сортировки экземпляров класса Vacancy по параметру "максимальная зарплата" """
+        salary_max_list = []
+        for i in sj_list:
+            if i['salary_max']:
+                salary_max_list.append(i)
+        salary_max_list = sorted(salary_max_list, key=lambda x: x['salary_max'], reverse=True)
+        return salary_max_list

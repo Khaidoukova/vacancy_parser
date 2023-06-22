@@ -1,4 +1,5 @@
 class Vacancy:
+    """ Класс для представления вакансий и создания списка экземпляров вакансий для вывода на экран"""
     all_vacancies = []
 
     def __init__(self, title, url, salary_min, salary_max, description):
@@ -27,13 +28,13 @@ class Vacancy:
 
     def __str__(self):
         return f'Название вакансии: {self.title}\n' \
-               f'Ссылка на вакансию: {self.url}\n ' \
+               f'Ссылка на вакансию: {self.url}\n' \
                f'Минимальная зарплата {self.salary_min} руб. \n' \
                f'Максимальная зарплата {self.salary_max} руб. \n' \
                f'Требования к соискателю: {self.description} \n' \
 
+
     @classmethod
-    def vacancy_ex(cls, reader):
+    def vacancy_item(cls, reader):
         for row in reader:
             cls(row['title'], row['url'], row['salary_min'], row['salary_max'], row['description'])
-
